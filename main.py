@@ -482,8 +482,8 @@ def editarEvento():
             return
 
 def cancelarReservacion():
-    print("Para cancelar una reservacion, ingresa el rango de fechas (mm-dd-aaaa) en el que se encuentra agendada la reservacion que quieres cancelar.")
-    print("La cancelacion de una reservacion debe hacerse con minimo 2 (dias) de anticipacion.")
+    print("Para cancelar una reservación, ingresa el rango de fechas (mm-dd-aaaa) en el que se encuentra agendada la reservación que quieres cancelar.")
+    print("La cancelación de una reservacion debe hacerse con mínimo 2 (días) de anticipación.")
     print("Escribe '0' en cualquier campo para cancelar la operación.")
 
     while True:
@@ -573,7 +573,7 @@ def cancelarReservacion():
                             continue
 
                 miCursor.execute("UPDATE reservaciones SET estado = 'Cancelada' WHERE rowid = ?;", (eventoCancelando,))
-                print(f"✓ La reservacion con clave {registro[0]} y nombre '{registro[2]}' fue cancelada exitosamente.")
+                print(f"✓ La reservación con clave {registro[0]} y nombre '{registro[2]}' fue cancelada exitosamente.")
                 break
         except Error as e:
             print(f"⚠︎ Error al acceder a la base de datos: {e}")
