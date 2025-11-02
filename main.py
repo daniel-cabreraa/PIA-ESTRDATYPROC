@@ -103,7 +103,6 @@ def reservarSala():
             clienteAgendado = claveCliente
             break
     while True:
-        print("Escribe '0' para cancelar la operacion.")
         fecha_str = input("Ingresa la fecha a agendar (mm-dd-aaaa): ")
         try:
             fechaAgendada = dt.datetime.strptime(fecha_str, "%m-%d-%Y")
@@ -119,7 +118,7 @@ def reservarSala():
                 continue
         if fechaAgendada.weekday() == 6:
             diaSiguiente = fechaAgendada + dt.timedelta(days=1)
-            print(f"ⓘ La reservacion no puede ser hecha en domingo. ¿Deseas agendar el lunes {diaSiguiente.strftime("%d %b %Y")}? (S/N)")
+            print(f"ⓘ La reservación no puede ser hecha en domingo. ¿Deseas agendar el lunes {diaSiguiente.strftime("%d %b %Y")}? (S/N)")
             opcionReagendar = input().upper()
             if opcionReagendar == "S":
                 fechaAgendada = diaSiguiente
@@ -169,6 +168,7 @@ def reservarSala():
 
     while True:
         try:
+            print("Escribe '0' para cancelar la operacion.")
             salaAgendada = int(input("Ingresa la clave de la sala a agendar: "))
         except ValueError:
             print("⚠︎ Clave inválida.")
@@ -198,7 +198,6 @@ def reservarSala():
             print("ⓘ El nombre del evento no puede estar vacío.")
             continue
         break
-
     if nombreEvento == "0":
         return
     else:
@@ -396,8 +395,6 @@ def editarEvento():
         try:
             inicioRango = dt.datetime.strptime(inicioRango_str, "%m-%d-%Y")
             finRango = dt.datetime.strptime(finRango_str, "%m-%d-%Y")
-            #inicioRango_sql = inicioRango.strftime("%Y-%m-%d")
-            #finRango_sql = finRango.strftime("%Y-%m-%d")
         except:
             print("⚠︎ Fecha inválida.")
             opcionCancelar = input("¿Cancelar operación? (S/N) ").upper()
